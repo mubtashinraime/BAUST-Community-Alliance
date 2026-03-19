@@ -1,0 +1,6 @@
+@BAUST_community_Alliance.Api_HostAddress = http://localhost:5143
+
+GET {{BAUST_community_Alliance.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
