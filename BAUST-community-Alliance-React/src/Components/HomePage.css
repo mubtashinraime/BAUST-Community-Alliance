@@ -1,0 +1,51 @@
+#home-div1 {
+    background-color: palegoldenrod;
+    margin-top: 20px;
+}
+
+#home-div2 {
+    background-color: #FFF6F6;
+}
+
+#home-div3 {
+    margin-top: 20px;
+    margin-left: 200px;
+    margin-right: 200px;
+
+}
+
+.home-h4-blue {
+    color: blue;
+    font: bold;
+    font-weight: bolder;
+}
+
+#baust-bold {
+    font-style: italic;
+}
+
+#first-h1 {
+    font-size: 400%;
+}
+
+#home-first-p1 {
+    margin-left: 20px;
+    margin-bottom: 30px;
+    color: darkblue;
+}
+
+#home-first-p2 {
+    margin-left: 20px;
+    font-size: large;
+    color: black;
+}
+
+#home-first-p3 {
+    margin-left: 20px;
+    font-size: large;
+    color: black;
+}
+
+video {
+    margin-right: 20px;
+}

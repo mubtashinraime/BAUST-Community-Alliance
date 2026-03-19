@@ -1,0 +1,33 @@
+img {
+    width: 100px;
+    border-radius: 50px;
+    margin-left: 100px;
+}
+
+.logo-box {
+    margin-bottom: 20px;
+}
+
+span .baust-bold {
+    font-style: italic;
+}
+
+#baust-bold-p1:hover {
+    background-color: antiquewhite;
+}
+
+#baust-bold-p1 {
+    font-size: 200%;
+    margin-top: 25px;
+    margin-left: 400px;
+    font: bolder;
+    color: black;
+}
+
+nav div:first-child {
+    margin-left: 100px;
+}
+
+form:last-child {
+    margin-right: 300px;
+}
