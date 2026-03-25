@@ -5,7 +5,7 @@ namespace BAUST_community_Alliance.Api.Data;
 
 public class BAUST_AllianceDbContext : DbContext
 {
-    public BAUST_AllianceDbContext(DbContextOptions<BAUST_AllianceDbContext> dbContextOptions)
+    public BAUST_AllianceDbContext(DbContextOptions<BAUST_AllianceDbContext> dbContextOptions) : base(dbContextOptions)
     {
 
     }
