@@ -1,0 +1,22 @@
+/* 
+
+.card-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50% / 40%;
+    margin-bottom: 12px;
+}
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #4f5cff;
+    line-height: 1.4;
+}
+
+.card-date {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+ */

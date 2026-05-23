@@ -9,13 +9,15 @@ public class AddContentRequestDto
     [MaxLength(200, ErrorMessage = "The Maximum length is 200 character")]
     public string heading { get; set; }
     [Required]
-    [MaxLength(500, ErrorMessage = "The Maximum length is 500 character")]
+    [MaxLength(5000, ErrorMessage = "The Maximum length is 500 character")]
     public string content_about { get; set; }
     [Required]
-    [MaxLength(1000, ErrorMessage = "The Maximum length is 1000 character")]
+    [MaxLength(10000, ErrorMessage = "The Maximum length is 1000 character")]
     public string detail_description { get; set; }
     [Required]
-    [MaxLength(100, ErrorMessage = "The Maximum length is 100 character")]
+    [MaxLength(1000, ErrorMessage = "The Maximum length is 100 character")]
     public string image { get; set; }
     public string? video { get; set; }
+
+    public IFormFile ImageFile { get; set; }
 }

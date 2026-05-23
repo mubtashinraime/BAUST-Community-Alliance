@@ -1,5 +1,5 @@
 #home-div1 {
-    background-color: palegoldenrod;
+    background-color: #eee8aa;
     margin-top: 20px;
 }
 
@@ -49,3 +49,41 @@
 video {
     margin-right: 20px;
 }
+
+.content-card {
+    width: 100%;
+    min-height: 350px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+.card-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50% / 40%;
+    margin-bottom: 12px;
+}
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #4f5cff;
+    line-height: 1.4;
+}
+
+.card-date {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+

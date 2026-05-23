@@ -1,6 +1,7 @@
 using System;
 using BAUST_community_Alliance.Api.Data;
 using BAUST_community_Alliance.Api.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BAUST_community_Alliance.Api.Repository;
@@ -16,6 +17,7 @@ public class SQLContentRepositories : ContentRepository
     public async Task<Content> CreateContentAsync(Content content)
     {
         await dbContext.Contents.AddAsync(content);
+        content.DateTime = DateTime.Now;
         await dbContext.SaveChangesAsync();
         return content;
     }
@@ -32,9 +34,47 @@ public class SQLContentRepositories : ContentRepository
         return content;
     }
 
+    // public async Task<List<Content>> GetAllBlogsAsync()
+    // {
+    //     return await dbContext.Contents
+    //             .Where(x=>x.heading.ToLower() == "blogs")
+    //             .ToListAsync();
+    // }
+    public async Task<List<Content>> GetAllBlogsAsync(int pageNumber, int pageSize)
+    {
+        var blogs = await dbContext.Contents
+            .Where(x => x.heading.ToLower() == "blogs")
+            .OrderByDescending(x => x.DateTime)
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return blogs;
+    }
+
     public async Task<List<Content>> GetAllContentAsync()
     {
         return await dbContext.Contents.ToListAsync();
+    }
+
+    public async Task<List<Content>> GetAllPublicationsAsync(int pageNumber, int pageSize)
+    {
+        return await dbContext.Contents
+                .Where(x => x.heading.ToLower() == "publications")
+                .OrderByDescending(x => x.DateTime)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+    }
+
+    public async Task<List<Content>> GetAllStoriesAsync(int pageNumber, int pageSize)
+    {
+        return await dbContext.Contents
+                .Where(x => x.heading.ToLower() == "stories")
+                .OrderByDescending(x => x.DateTime)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
     }
 
     public async Task<Content?> GetContentByIdAsync(int id)

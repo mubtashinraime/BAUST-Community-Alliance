@@ -1,6 +1,26 @@
+import { useEffect, useState } from 'react';
 import '../Components/HomePage.css'
+import { api } from '../Services/api';
 import video from '../Videos/Baust-video.mp4'
+import ContentCard from './ContentCard';
+
+interface PostItem {
+    id: number;
+    heading: string;
+    content_about: string;
+    image: string;
+    dateTime: string;
+};
 function HomePage() {
+
+    const [stories, setStories] = useState<PostItem[]>([]);
+    const [blogs, setBlogs] = useState<PostItem[]>([]);
+    const [publications, setPublications] = useState<PostItem[]>([]);
+    useEffect(() => {
+        api.get("content/stories").then(res => setStories(res.data));
+        api.get("content/blogs").then(res => setBlogs(res.data));
+        api.get("content/publications").then(res => setPublications(res.data));
+    }, []);
     return (
         <>
             <div id='home-div1' className='d-flex justify-content-between' >
@@ -26,47 +46,34 @@ function HomePage() {
                     <h2>Latest from the Alliance</h2><br />
                     <div className="container text-left">
                         <div className="row align-items-start">
-                            <div className="col">
+
+                            <div className="col-md-4">
                                 <h4 className='home-h4-blue'>Stories</h4>
-                                <section id='home-section1'>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, rerum!</p>
-                                </section>
-                                <section id='home-section2'>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, rerum!</p>
-                                </section>
-                                <section id='home-section3'>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, rerum!</p>
-                                </section>
+                                {stories.slice(0, 3).map((story) => (
+                                    <ContentCard key={story.id} item={story} />
+                                ))}
                             </div>
-                            <div className="col">
+
+                            <div className="col-md-4">
                                 <h4 className='home-h4-blue'>Blogs</h4>
-                                <section id='home-section4'>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, rerum!</p>
-                                </section>
-                                <section id='home-section5'>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, rerum!</p>
-                                </section>
-                                <section id='home-section6'>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, rerum!</p>
-                                </section>
+                                {blogs.slice(0, 3).map((blog) => (
+                                    <ContentCard key={blog.id} item={blog} />
+                                ))}
                             </div>
-                            <div className="col">
+
+                            <div className="col-md-4">
                                 <h4 className='home-h4-blue'>Publications</h4>
-                                <section id='home-section7'>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, rerum!</p>
-                                </section>
-                                <section id='home-section8'>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, rerum!</p>
-                                </section>
-                                <section id='home-section9'>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, rerum!</p>
-                                </section>
+                                {publications.slice(0, 3).map((publication) => (
+                                    <ContentCard key={publication.id} item={publication} />
+                                ))}
                             </div>
+
                         </div>
                     </div>
-
                 </div>
+
             </div>
+
 
         </>
     )
