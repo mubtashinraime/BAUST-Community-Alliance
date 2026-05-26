@@ -1,0 +1,132 @@
+/* ==========================================================================
+   BLOG PAGE CONTAINER & LAYOUT
+   ========================================================================== */
+
+.blog-page {
+  background-color: #f5efef;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+/* Page Big Title */
+.blog-title {
+  text-align: center;
+  font-size: 48px;
+  font-family: "Georgia", serif;
+  font-weight: 600;
+  margin-bottom: 50px;
+  color: #222;
+}
+
+/* Blog Layout Stack */
+.blog-page .blog-grid {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+/* ==========================================================================
+   ISOLATED BLOG LIST CARD STYLING (PREVENTS OVERLAPPING)
+   ========================================================================== */
+
+.blog-list-card {
+  background-color: #ffffff;
+  width: 100%;
+  display: flex; 
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 0 25px 0;
+  border-bottom: 1px solid #e0e0e0;
+  gap: 24px; /* Safe gutter spacing between image box and text layout blocks */
+}
+
+/* Square Left Image Config */
+.blog-list-image {
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 0px; 
+  flex-shrink: 0; /* Keeps image from shrinking on smaller resolutions */
+}
+
+/* Text Details Wrapper Layout */
+.blog-list-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1;
+}
+
+/* Title Link Typography */
+.blog-list-title {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #4f5cff; 
+  text-decoration: none;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.blog-list-title:hover {
+  text-decoration: underline;
+}
+
+/* Truncates text cleanly down to 2 lines, concluding with a trailing ellipsis (...) */
+.blog-list-desc {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 4px 0;
+  
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Date display parameters */
+.blog-list-date {
+  color: #333;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 4px 0 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   PAGINATION BUTTONS
+   ========================================================================== */
+
+.blog-pagination {
+  width: 75%;
+  margin: 40px auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-btn {
+  background: black;
+  color: #00c8ff;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.page-btn:hover {
+  opacity: 0.85;
+}
+
+.page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
