@@ -1,0 +1,57 @@
+.detail-header-split {
+  display: grid;
+  /* Track 1: Exactly 360px for the image | Track 2: Takes up all remaining space */
+  grid-template-columns: 360px 1fr; 
+  
+  /* Hardcoded physical gap between the image and text tracks */
+  column-gap: 50px; 
+  
+  align-items: start;
+  border-bottom: 1px solid #eef0f2;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+}
+
+/* Simplifies the wrappers since Grid handles structural sizing */
+.detail-image-wrapper {
+  width: 100%;
+}
+
+.detail-main-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.detail-meta-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.detail-blue-heading {
+  display: block;
+  color: #3b52ff;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.detail-about-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.4; /* Gives space between multi-line titles */
+  margin: 0 0 16px 0;
+  color: #111111;
+}
+
+/* Mobile responsive fallback so it looks great on small screens too */
+@media (max-width: 768px) {
+  .detail-header-split {
+    grid-template-columns: 1fr;
+    row-gap: 25px;
+  }
+}
